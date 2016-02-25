@@ -13,7 +13,8 @@ public enum TradeType {
     Balance(6),
     Credit(7);
 
-    public TradeType fromCmd(final int cmd) {
+    public static TradeType fromCmd(final int cmd) {
+
         switch (cmd) {
             case 0: return Buy;
             case 1: return Sell;
@@ -26,6 +27,28 @@ public enum TradeType {
             default:
                 throw new IllegalArgumentException("Illegal cmd arguement: " + cmd);
         }
+    }
+
+    public int toCmd() {
+
+        return mCmd;
+    }
+
+    @Override
+    public String toString() {
+
+        switch (this) {
+            case Buy: return "Buy";
+            case Sell: return "Sell";
+            case BuyLimit: return "BuyLimit";
+            case SellLimit: return "SellLimit";
+            case BuyStop: return "BuyStop";
+            case SellStop: return "SellStop";
+            case Balance: return "Balance";
+            case Credit: return "Credit";
+        }
+
+        throw new RuntimeException("Can't happen");
     }
 
     TradeType(final int cmd) {
