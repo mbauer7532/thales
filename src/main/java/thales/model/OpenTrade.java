@@ -1,4 +1,4 @@
-package model;
+package thales.model;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -7,9 +7,9 @@ import java.util.OptionalDouble;
 /**
  * Created by Neo on 2/24/2016.
  */
-public final class Trade {
+public final class OpenTrade {
 
-    public Trade(
+    public OpenTrade(
         final long tradeId,
         final long login,
         final String symbol,

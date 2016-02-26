@@ -1,0 +1,45 @@
+package thales.model.protoBuf;
+
+option java_package = "thales.model.protoBuf";
+option java_multiple_files = true;
+
+message UserProto {
+    required int64 userId     = 1;
+    required string firstName = 2;
+    required string lastName  = 3;
+    required bool isEnabled   = 4;
+    required bool isReadOnly  = 5;
+    required bool sendReports = 6;
+    required int32 leverage   = 7;
+    required string email     = 8;
+    required string comment   = 9;
+
+    required double balance   = 10;
+    required double credit    = 11;
+    required double taxes     = 12;
+}
+
+message TradeProto {
+    required long mTradeId;
+    required long mLogin;
+    required String mSymbol;
+    required TradeType mTradeType;
+    required int mVolume;
+    required LocalDateTime mOpenDateTime;
+    required Optional<LocalDateTime> mCloseDateTime;
+    required double mOpenPrice;
+    required OptionalDouble mClosePrice;
+    required OptionalDouble mStopLoss;
+    required OptionalDouble mTakeProfit;
+    required Optional<LocalDateTime> mPendingOrderExpiration;
+    required double mConvRateOpen;   // convertation rates from profit currency to group deposit currency
+    required double mConvRateClose;  // convertation rates from profit currency to group deposit currency
+    required double mCommission;
+    required double mSwaps;
+    required double mProfit;
+    required double mTaxes;
+    required double mMarginRate;       // margin convertation rate (rate of convertation from margin currency to deposit one)
+    required LocalDateTime mTimestamp; // timestamp
+    required double mAgentCommission;
+    required String mComment;
+}

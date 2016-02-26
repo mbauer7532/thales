@@ -1,4 +1,4 @@
-package model;
+package thales.model;
 
 /**
  * Created by Neo on 2/24/2016.

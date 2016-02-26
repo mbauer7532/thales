@@ -1,4 +1,4 @@
-package main;
+package thales.main;
 
 /**
  * Created by Neo on 2/25/2016.
