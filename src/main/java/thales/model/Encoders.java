@@ -4,8 +4,10 @@ import thales.model.protoBuf.LocalDateTimeProto;
 import thales.model.protoBuf.OpenTradeProto;
 import thales.model.protoBuf.OpenTradeProto.Builder;
 import thales.model.protoBuf.UserProto;
+import thales.utils.Functionals;
 
 import java.time.LocalDateTime;
+import java.util.function.Consumer;
 
 /**
  * Created by Neo on 2/26/2016.
@@ -30,19 +32,6 @@ public final class Encoders {
                 .setTaxes(user.getTaxes())
                 .build()
                 .toByteArray();
-    }
-
-    public static LocalDateTimeProto toProtoObject(final LocalDateTime ldt) {
-
-        return LocalDateTimeProto.newBuilder()
-                .setYear(ldt.getYear())
-                .setMonth(ldt.getMonth().getValue())
-                .setDay(ldt.getDayOfMonth())
-                .setHour(ldt.getHour())
-                .setMinute(ldt.getMinute())
-                .setSecond(ldt.getSecond())
-                .setNanosecond(ldt.getNano())
-                .build();
     }
 
     public static byte[] encode(final OpenTrade openTrade) {
@@ -72,6 +61,18 @@ public final class Encoders {
                    .setComment(openTrade.getComment())
                    .build()
                    .toByteArray();
+    }
 
+    private static LocalDateTimeProto toProtoObject(final LocalDateTime ldt) {
+
+        return LocalDateTimeProto.newBuilder()
+            .setYear(ldt.getYear())
+            .setMonth(ldt.getMonth().getValue())
+            .setDay(ldt.getDayOfMonth())
+            .setHour(ldt.getHour())
+            .setMinute(ldt.getMinute())
+            .setSecond(ldt.getSecond())
+            .setNanosecond(ldt.getNano())
+            .build();
     }
 }
