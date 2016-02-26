@@ -16,21 +16,17 @@ public final class OpenTrade {
         final TradeType tradeType,
         final int volume,
         final LocalDateTime openDateTime,
-        final Optional<LocalDateTime> closeDateTime,
         final double openPrice,
-        final OptionalDouble closePrice,
         final OptionalDouble stopLoss,
         final OptionalDouble takeProfit,
         final Optional<LocalDateTime> pendingOrderExpiration,
         final double convRateOpen,
-        final double convRateClose,
         final double commission,
         final double swaps,
         final double profit,
         final double taxes,
         final double marginRate,
         final LocalDateTime timestamp,
-        final double agentCommission,
         final String comment) {
 
         mTradeId = tradeId;
@@ -39,21 +35,17 @@ public final class OpenTrade {
         mTradeType = tradeType;
         mVolume = volume;
         mOpenDateTime = openDateTime;
-        mCloseDateTime = closeDateTime;
         mOpenPrice = openPrice;
-        mClosePrice = closePrice;
         mStopLoss = stopLoss;
         mTakeProfit = takeProfit;
         mPendingOrderExpiration = pendingOrderExpiration;
         mConvRateOpen = convRateOpen;
-        mConvRateClose = convRateClose;
         mCommission = commission;
         mSwaps = swaps;
         mProfit = profit;
         mTaxes = taxes;
         mMarginRate = marginRate;
         mTimestamp = timestamp;
-        mAgentCommission = agentCommission;
         mComment = comment;
     }
 
@@ -81,16 +73,8 @@ public final class OpenTrade {
         return mOpenDateTime;
     }
 
-    public Optional<LocalDateTime> getCloseDateTime() {
-        return mCloseDateTime;
-    }
-
     public double getOpenPrice() {
         return mOpenPrice;
-    }
-
-    public OptionalDouble getClosePrice() {
-        return mClosePrice;
     }
 
     public OptionalDouble getStopLoss() {
@@ -107,10 +91,6 @@ public final class OpenTrade {
 
     public double getConvRateOpen() {
         return mConvRateOpen;
-    }
-
-    public double getConvRateClose() {
-        return mConvRateClose;
     }
 
     public double getCommission() {
@@ -137,10 +117,6 @@ public final class OpenTrade {
         return mTimestamp;
     }
 
-    public double getAgentCommission() {
-        return mAgentCommission;
-    }
-
     public String getComment() {
         return mComment;
     }
@@ -151,20 +127,16 @@ public final class OpenTrade {
     private final TradeType mTradeType;
     private final int mVolume;
     private final LocalDateTime mOpenDateTime;
-    private final Optional<LocalDateTime> mCloseDateTime;
     private final double mOpenPrice;
-    private final OptionalDouble mClosePrice;
     private final OptionalDouble mStopLoss;
     private final OptionalDouble mTakeProfit;
     private final Optional<LocalDateTime> mPendingOrderExpiration;
     private final double mConvRateOpen;   // convertation rates from profit currency to group deposit currency
-    private final double mConvRateClose;  // convertation rates from profit currency to group deposit currency
     private final double mCommission;
     private final double mSwaps;
     private final double mProfit;
     private final double mTaxes;
     private final double mMarginRate;       // margin convertation rate (rate of convertation from margin currency to deposit one)
     private final LocalDateTime mTimestamp; // timestamp
-    private final double mAgentCommission;
     private final String mComment;
 }

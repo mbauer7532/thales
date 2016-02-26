@@ -1,6 +1,11 @@
 package thales.model;
 
+import thales.model.protoBuf.LocalDateTimeProto;
+import thales.model.protoBuf.OpenTradeProto;
+import thales.model.protoBuf.OpenTradeProto.Builder;
 import thales.model.protoBuf.UserProto;
+
+import java.time.LocalDateTime;
 
 /**
  * Created by Neo on 2/26/2016.
@@ -27,8 +32,46 @@ public final class Encoders {
                 .toByteArray();
     }
 
+    public static LocalDateTimeProto toProtoObject(final LocalDateTime ldt) {
+
+        return LocalDateTimeProto.newBuilder()
+                .setYear(ldt.getYear())
+                .setMonth(ldt.getMonth().getValue())
+                .setDay(ldt.getDayOfMonth())
+                .setHour(ldt.getHour())
+                .setMinute(ldt.getMinute())
+                .setSecond(ldt.getSecond())
+                .setNanosecond(ldt.getNano())
+                .build();
+    }
+
     public static byte[] encode(final OpenTrade openTrade) {
 
-        return null;
+        final Builder builder =
+            OpenTradeProto.newBuilder()
+                .setTradeId(openTrade.getTradeId())
+                .setLogin(openTrade.getLogin())
+                .setSymbol(openTrade.getSymbol())
+                .setTradeType(openTrade.getTradeType().toCmd())
+                .setVolume(openTrade.getVolume())
+                .setOpenDateTime(toProtoObject(openTrade.getOpenDateTime()))
+                .setOpenPrice(openTrade.getOpenPrice());
+
+        openTrade.getStopLoss().ifPresent(builder::setStopLoss);
+        openTrade.getTakeProfit().ifPresent(builder::setTakeProfit);
+        openTrade.getPendingOrderExpiration().ifPresent(expiration -> builder.setPendingTradeExpiration(toProtoObject(expiration)));
+
+        return
+            builder.setConvRateOpen(openTrade.getConvRateOpen())
+                   .setCommission(openTrade.getCommission())
+                   .setSwaps(openTrade.getSwaps())
+                   .setProfit(openTrade.getProfit())
+                   .setTaxes(openTrade.getTaxes())
+                   .setMarginRate(openTrade.getMarginRate())
+                   .setTimestamp(toProtoObject(openTrade.getTimestamp()))
+                   .setComment(openTrade.getComment())
+                   .build()
+                   .toByteArray();
+
     }
 }
