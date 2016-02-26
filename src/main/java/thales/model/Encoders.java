@@ -6,23 +6,6 @@ import thales.model.protoBuf.UserProto;
  * Created by Neo on 2/26/2016.
  */
 
-/*
-required int64 userId     = 1;
-    required string firstName = 2;
-    required string lastName  = 3;
-    required bool ssEnabled   = 4;
-    required bool ssReadOnly  = 5;
-    required bool sendReports = 6;
-    required int32 leverage   = 7;
-    required string email     = 8;
-    required string comment   = 9;
-
-    required double balance   = 10;
-    required double credit    = 11;
-    required double taxes     = 12;
-*/
-
-
 public final class Encoders {
 
     public static byte[] encode(final User user) {
@@ -46,6 +29,6 @@ public final class Encoders {
 
     public static byte[] encode(final OpenTrade openTrade) {
 
-        return
+        return null;
     }
 }
