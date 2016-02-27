@@ -3,7 +3,29 @@ package thales.model.protoBuf;
 option java_package = "thales.model.protoBuf";
 option java_multiple_files = true;
 
-message UserProto {
+message LocalDateTimeProto {
+    required int32 year = 1;
+    required int32 month = 2;
+    required int32 day = 3;
+    required int32 hour = 4;
+    required int32 minute = 5;
+    required int32 second = 6;
+    required int32 nanosecond = 7;
+}
+
+message UserRequestProto {
+    optional int64 userId     = 1;
+    required string firstName = 2;
+    required string lastName  = 3;
+    required bool isEnabled   = 4;
+    required bool isReadOnly  = 5;
+    required bool sendReports = 6;
+    required int32 leverage   = 7;
+    required string email     = 8;
+    required string comment   = 9;
+}
+
+message UserResponseProto {
     required int64 userId     = 1;
     required string firstName = 2;
     required string lastName  = 3;
@@ -19,17 +41,17 @@ message UserProto {
     required double taxes     = 12;
 }
 
-message LocalDateTimeProto {
-    required int32 year = 1;
-    required int32 month = 2;
-    required int32 day = 3;
-    required int32 hour = 4;
-    required int32 minute = 5;
-    required int32 second = 6;
-    required int32 nanosecond = 7;
+message OpenTradeRequestProto {
+    required int64 login                               = 1;
+    required string symbol                             = 2;
+    required int32 tradeType                           = 3;
+    required int32 volume                              = 4;
+    optional double stopLoss                           = 5;
+    optional double takeProfit                         = 6;
+    optional LocalDateTimeProto pendingTradeExpiration = 7;
 }
 
-message OpenTradeProto {
+message OpenTradeResponseProto {
     required int64 tradeId                             = 1;
     required int64 login                               = 2;
     required string symbol                             = 3;
@@ -49,4 +71,28 @@ message OpenTradeProto {
     required LocalDateTimeProto timestamp              = 17;
     required double agentCommission                    = 18;
     required string comment                            = 19;
+}
+
+message ClosedTradeResponseProto {
+    required int64 tradeId                              = 1;
+    required int64 login                                = 2;
+    required string symbol                              = 3;
+    required int32 tradeType                            = 4;
+    required int32 volume                               = 5;
+    required LocalDateTimeProto openDateTime            = 6;
+    required double openPrice                           = 7;
+    required LocalDateTimeProto closeDateTime           = 8;
+    required double closePrice                          = 9;
+    optional double stopLoss                            = 10;
+    optional double takeProfit                          = 11;
+    optional LocalDateTimeProto pendingOrderExpiration  = 12;
+    required double convRateOpen                        = 13;
+    required double convRateClosed                      = 14;
+    required double commission                          = 15;
+    required double swaps                               = 16;
+    required double profit                              = 17;
+    required double taxes                               = 18;
+    required double marginRate                          = 19;
+    required LocalDateTimeProto timestamp               = 20;
+    required string comment                             = 21;
 }
