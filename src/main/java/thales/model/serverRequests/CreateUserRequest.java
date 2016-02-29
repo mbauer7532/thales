@@ -1,13 +1,13 @@
-package thales.model;
+package thales.model.serverRequests;
 
 import java.util.OptionalLong;
 
 /**
  * Created by Neo on 2/29/2016.
  */
-public final class createUserRequest {
+public final class CreateUserRequest {
 
-    public static createUserRequest create(
+    public static CreateUserRequest create(
         final OptionalLong userId,
         final String firstName,
         final String lastName,
@@ -18,7 +18,7 @@ public final class createUserRequest {
         final String email,
         final String comment) {
 
-        return new createUserRequest(userId, firstName, lastName, isEnabled, isReadOnly, sendReports, leverage, email, comment);
+        return new CreateUserRequest(userId, firstName, lastName, isEnabled, isReadOnly, sendReports, leverage, email, comment);
     }
 
     public OptionalLong getUserId() {
@@ -57,7 +57,7 @@ public final class createUserRequest {
         return mComment;
     }
 
-    private createUserRequest(
+    private CreateUserRequest(
         final OptionalLong userId,
         final String firstName,
         final String lastName,

@@ -1,4 +1,6 @@
-package thales.model;
+package thales.model.serverRequests;
+
+import thales.model.TradeType;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
