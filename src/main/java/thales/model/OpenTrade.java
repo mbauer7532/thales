@@ -9,7 +9,7 @@ import java.util.OptionalDouble;
  */
 public final class OpenTrade {
 
-    public OpenTrade(
+    public static OpenTrade create(
         final long tradeId,
         final long login,
         final String symbol,
@@ -29,24 +29,7 @@ public final class OpenTrade {
         final LocalDateTime timestamp,
         final String comment) {
 
-        mTradeId = tradeId;
-        mLogin = login;
-        mSymbol = symbol;
-        mTradeType = tradeType;
-        mVolume = volume;
-        mOpenDateTime = openDateTime;
-        mOpenPrice = openPrice;
-        mStopLoss = stopLoss;
-        mTakeProfit = takeProfit;
-        mPendingOrderExpiration = pendingOrderExpiration;
-        mConvRateOpen = convRateOpen;
-        mCommission = commission;
-        mSwaps = swaps;
-        mProfit = profit;
-        mTaxes = taxes;
-        mMarginRate = marginRate;
-        mTimestamp = timestamp;
-        mComment = comment;
+        return new OpenTrade(tradeId, login, symbol, tradeType, volume, openDateTime, openPrice, stopLoss, takeProfit, pendingOrderExpiration, convRateOpen, commission, swaps, profit, taxes, marginRate, timestamp, comment);
     }
 
     public long getTradeId() {
@@ -119,6 +102,46 @@ public final class OpenTrade {
 
     public String getComment() {
         return mComment;
+    }
+
+    private OpenTrade(
+        final long tradeId,
+        final long login,
+        final String symbol,
+        final TradeType tradeType,
+        final int volume,
+        final LocalDateTime openDateTime,
+        final double openPrice,
+        final OptionalDouble stopLoss,
+        final OptionalDouble takeProfit,
+        final Optional<LocalDateTime> pendingOrderExpiration,
+        final double convRateOpen,
+        final double commission,
+        final double swaps,
+        final double profit,
+        final double taxes,
+        final double marginRate,
+        final LocalDateTime timestamp,
+        final String comment) {
+
+        mTradeId = tradeId;
+        mLogin = login;
+        mSymbol = symbol;
+        mTradeType = tradeType;
+        mVolume = volume;
+        mOpenDateTime = openDateTime;
+        mOpenPrice = openPrice;
+        mStopLoss = stopLoss;
+        mTakeProfit = takeProfit;
+        mPendingOrderExpiration = pendingOrderExpiration;
+        mConvRateOpen = convRateOpen;
+        mCommission = commission;
+        mSwaps = swaps;
+        mProfit = profit;
+        mTaxes = taxes;
+        mMarginRate = marginRate;
+        mTimestamp = timestamp;
+        mComment = comment;
     }
 
     private final long mTradeId;
