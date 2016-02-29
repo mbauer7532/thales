@@ -1,5 +1,6 @@
-package thales.model;
+package thales.model.serverRequests;
 
+import thales.model.TradeType;
 import thales.model.protoBuf.clientToServer.CreateUserRequest;
 import thales.model.protoBuf.clientToServer.LocalDateTimeProto;
 import thales.model.protoBuf.clientToServer.OpenTradeRequest;

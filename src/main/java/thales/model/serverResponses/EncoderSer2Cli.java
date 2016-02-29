@@ -1,8 +1,10 @@
-package thales.model;
+package thales.model.serverResponses;
 
 import thales.model.protoBuf.serverToClient.GetOpenTradeResponse;
 import thales.model.protoBuf.serverToClient.GetUserResponse;
 import thales.model.protoBuf.serverToClient.LocalDateTimeProto;
+import thales.model.serverResponses.OpenTrade;
+import thales.model.serverResponses.User;
 
 import java.time.LocalDateTime;
 

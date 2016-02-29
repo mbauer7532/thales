@@ -1,4 +1,4 @@
-package thales.model;
+package thales.model.serverResponses;
 
 /**
  * Created by Neo on 2/26/2016.

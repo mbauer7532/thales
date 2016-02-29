@@ -25,7 +25,7 @@ public enum TradeType {
             case 6: return Balance;
             case 7: return Credit;
             default:
-                throw new IllegalArgumentException("Illegal cmd arguement: " + cmd);
+                throw new IllegalArgumentException("Illegal cmd argument: " + cmd);
         }
     }
 

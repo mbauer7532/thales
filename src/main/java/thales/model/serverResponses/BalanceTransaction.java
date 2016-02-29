@@ -1,4 +1,6 @@
-package thales.model;
+package thales.model.serverResponses;
+
+import thales.model.TransactionType;
 
 import java.time.LocalDateTime;
 
