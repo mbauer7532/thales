@@ -74,3 +74,23 @@ message GetClosedTradeResponse {
     required LocalDateTimeProto timestamp               = 20;
     required string comment                             = 21;
 }
+
+message GetAllOpenTradeResponse {
+    repeated GetOpenTradeResponse openTrades = 1;
+}
+
+message GetUserOpenTradesResponse {
+    repeated GetOpenTradeResponse openTrades = 1;
+}
+
+message GetUserClosedTradesResponse {
+    repeated GetClosedTradeResponse closedTrades = 1;
+}
+
+message GetSymbolResponse {
+    required string symbolName = 1;
+    required string description = 2;
+    required string currency = 3;
+    required int64 digits = 4;
+}
+

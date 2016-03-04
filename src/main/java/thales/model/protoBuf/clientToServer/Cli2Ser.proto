@@ -35,3 +35,18 @@ message OpenTradeRequest {
     optional LocalDateTimeProto pendingTradeExpiration = 7;
     required string comment                            = 8;
 }
+
+message GetAllOpenTrades {}
+
+message GetUserOpenTradesRequest {
+    required int64 login = 1;
+}
+
+message GetUserClosedTradesRequest {
+    required int64 login = 1;
+}
+
+message GetSymbolRequest {
+    required string symbol = 1;
+}
+

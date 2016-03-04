@@ -9,6 +9,7 @@ public final class User {
         final long userId,
         final String firstName,
         final String lastName,
+        final String userGroup,
         final boolean isEnabled,
         final boolean isReadOnly,
         final boolean sendReports,
@@ -19,7 +20,20 @@ public final class User {
         final double credit,
         final double taxes) {
 
-        return new User(userId, firstName, lastName, isEnabled, isReadOnly, sendReports, leverage, email, comment, balance, credit, taxes);
+        return new User(
+            userId,
+            firstName,
+            lastName,
+            userGroup,
+            isEnabled,
+            isReadOnly,
+            sendReports,
+            leverage,
+            email,
+            comment,
+            balance,
+            credit,
+            taxes);
     }
 
     public long getUserId() {
@@ -32,6 +46,10 @@ public final class User {
 
     public String getLastName() {
         return mLastName;
+    }
+
+    public String getUserGroup() {
+        return mUserGroup;
     }
 
     public boolean getIsEnabled() {
@@ -74,6 +92,7 @@ public final class User {
         final long userId,
         final String firstName,
         final String lastName,
+        final String userGroup,
         final boolean isEnabled,
         final boolean isReadOnly,
         final boolean sendReports,
@@ -87,6 +106,7 @@ public final class User {
         mUserId = userId;
         mFirstName = firstName;
         mLastName = lastName;
+        mUserGroup = userGroup;
         mIsEnabled = isEnabled;
         mIsReadOnly = isReadOnly;
         mSendReports = sendReports;
@@ -101,6 +121,7 @@ public final class User {
     private final long mUserId;
     private final String mFirstName;
     private final String mLastName;
+    private final String mUserGroup;
     private final boolean mIsEnabled;
     private final boolean mIsReadOnly;
     private final boolean mSendReports;
