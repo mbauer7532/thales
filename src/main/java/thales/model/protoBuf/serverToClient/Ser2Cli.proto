@@ -13,20 +13,25 @@ message LocalDateTimeProto {
     required int32 nanosecond = 7;
 }
 
+message CreateUserResponse {
+    required int64 login = 1;
+}
+
 message GetUserResponse {
-    required int64 userId     = 1;
+    required int64 login      = 1;
     required string firstName = 2;
     required string lastName  = 3;
-    required bool isEnabled   = 4;
-    required bool isReadOnly  = 5;
-    required bool sendReports = 6;
-    required int32 leverage   = 7;
-    required string email     = 8;
-    required string comment   = 9;
+    required string userGroup = 4;
+    required bool isEnabled   = 5;
+    required bool isReadOnly  = 6;
+    required bool sendReports = 7;
+    required int32 leverage   = 8;
+    required string email     = 9;
+    required string comment   = 10;
 
-    required double balance   = 10;
-    required double credit    = 11;
-    required double taxes     = 12;
+    required double balance   = 11;
+    required double credit    = 12;
+    required double taxes     = 13;
 }
 
 message GetOpenTradeResponse {
